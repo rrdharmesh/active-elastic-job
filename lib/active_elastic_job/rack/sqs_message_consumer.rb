@@ -96,7 +96,7 @@ module ActiveElasticJob
       end
 
       def execute_job(request)
-        verify!(request)
+#       verify!(request)
         job = JSON.load(request.body)
         ActiveJob::Base.execute(job)
       end
@@ -113,7 +113,7 @@ module ActiveElasticJob
         elsif request.headers['HTTP_X_AWS_SQSD_ATTR_MESSAGE_DIGEST'.freeze] != nil
           return true
         else
-          return true
+          return true # if message is pushed from Cloudwatch Events
         end
       end
 
