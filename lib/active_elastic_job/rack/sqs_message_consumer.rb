@@ -113,7 +113,7 @@ module ActiveElasticJob
         elsif request.headers['HTTP_X_AWS_SQSD_ATTR_MESSAGE_DIGEST'.freeze] != nil
           return true
         else
-          return false
+          return true
         end
       end
 
